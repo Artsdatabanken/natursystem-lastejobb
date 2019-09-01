@@ -1,4 +1,3 @@
-if (!process.env.DEBUG) process.env.DEBUG = "*";
 const { io } = require("lastejobb");
 const log = require("log-less-fancy")();
 

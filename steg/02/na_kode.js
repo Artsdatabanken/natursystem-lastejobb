@@ -1,4 +1,5 @@
 const { io } = require("lastejobb");
+
 let alleKoder = io.readJson(
   "./nin-data/Natur_i_Norge/Natursystem/kodeliste_v2b.json"
 ).data;
