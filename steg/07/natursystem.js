@@ -154,4 +154,4 @@ function splittKode(kode) {
   return segments || [];
 }
 
-io.skrivBuildfil(__filename, r);
+io.skrivBuildfil(__filename, json.objectToArray(r, "kode"));
