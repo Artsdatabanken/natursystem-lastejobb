@@ -1,0 +1,23 @@
+{
+  "name": "natursystem-lastejobb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artsdatabanken/natursystem-lastejobb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Artsdatabanken/natursystem-lastejobb/issues"
+  },
+  "homepage": "https://github.com/Artsdatabanken/natursystem-lastejobb#readme",
+  "dependencies": {
+    "lastejobb": "^1.23.3"
+  }
+}
