@@ -67,16 +67,17 @@ function flettKildedata(filename) {
 }
 
 function finnForeldre(kode) {
-  if (kode === "~") return [];
+  const rotkode = "NN-NA";
+  if (kode === rotkode) return [];
   const segs = splittKode(kode);
-  if (segs.length <= 1) return ["~"];
+  if (segs.length <= 1) return [rotkode];
   const len = segs[segs.length - 1].length;
   kode = kode.substring(0, kode.length - len);
   while (kode.length > 0) {
     if (kode in r) return [kode];
     kode = kode.substring(0, kode.length - 1);
   }
-  return ["~"];
+  return [rotkode];
 }
 
 function kobleForeldre() {
