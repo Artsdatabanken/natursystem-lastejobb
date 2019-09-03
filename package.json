@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "pull": "node index pull",
     "build": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

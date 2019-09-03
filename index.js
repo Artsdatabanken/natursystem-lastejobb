@@ -1,3 +1,4 @@
 const lastejobb = require("lastejobb");
 
-lastejobb.kjørLastejobberUnder("./steg");
+const scripPath = process.argv[2] || "steg";
+lastejobb.kjørLastejobberUnder(scripPath);
