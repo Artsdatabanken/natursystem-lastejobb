@@ -2,7 +2,7 @@ const { io } = require("lastejobb");
 const log = require("log-less-fancy")();
 
 let rows = io.lesDatafil("na_grunntype_til_lkm.csv.json").items;
-let nin_liste = io.lesDatafil("na_kode");
+let typeinndeling = io.lesDatafil("typeinndeling");
 let mi_liste = io.lesDatafil("na_mi_liste");
 const replace = {
   "S3-E": "S3E",
@@ -50,7 +50,8 @@ function decode(mii) {
 
 rows.forEach(row => {
   let na = "NN-NA-TI-" + row["Grunntype_kode"].replace("NA-", "");
-  if (!(na in nin_liste)) return (ukjent_nin[na] = (ukjent_nin[na] || 0) + 1);
+  if (!(na in typeinndeling))
+    return (ukjent_nin[na] = (ukjent_nin[na] || 0) + 1);
   for (var i = 1; i <= 6; i++) {
     const e = row["LKM_Basistrinn" + i].trim();
     if (!e) return;

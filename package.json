@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Artsdatabanken/natursystem-lastejobb#readme",
   "dependencies": {
-    "@artsdatabanken/typesystem": "^10.5.5",
+    "@artsdatabanken/typesystem": "^10.5.7",
     "lastejobb": "^1.24.2"
   }
 }

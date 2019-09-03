@@ -4,13 +4,15 @@ const typesystem = require("@artsdatabanken/typesystem");
 
 // Lager liste av natursystemtyper og miljøvariabler
 
-let ninkoder = io.lesDatafil("na_kode");
+let typeinndeling = io.lesDatafil("typeinndeling");
 let variasjon = io.lesDatafil("mi_variasjon");
 let overrides = io.lesDatafil("na_overstyr_hierarki");
 
-const alle = Object.assign({}, ninkoder, variasjon);
-typesystem.kobleForeldre(alle);
-
+const alle = Object.assign({}, typeinndeling, variasjon);
+//alle["NN-NA"] = { tittel: { nb: "Natursystem" } };
+//alle["NN-NA-TI"].foreldre = ["NN-NA"];
+//typesystem.kobleForeldre(alle);
+//debugger;
 let noder = {};
 
 let fjernet = [];

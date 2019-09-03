@@ -6,7 +6,7 @@ log.logLevel = 6;
 let diagArt = io.readJson(
   "nin-data/Natur_i_Norge/Natursystem/Typeinndeling/diagnostisk_art.json"
 );
-let nin_liste = io.lesDatafil("na_kode");
+let typeinndeling = io.lesDatafil("typeinndeling");
 
 let r = {};
 
@@ -57,7 +57,7 @@ Object.keys(diagArt).forEach(key => {
   const hovedtype = "NN-NA-TI-" + art.Kartleggingsenhet.split("-")[0];
   const na_kode = "NN-NA-TI-" + art.Kartleggingsenhet.trim();
 
-  if (!nin_liste[na_kode])
+  if (!typeinndeling[na_kode])
     ukjenteKoder[na_kode] = ukjenteKoder[na_kode]
       ? ukjenteKoder[na_kode] + 1
       : 1;

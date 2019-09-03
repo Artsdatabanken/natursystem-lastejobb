@@ -1,4 +1,5 @@
 const { io, json, log } = require("lastejobb");
+const typesystem = require("@artsdatabanken/typesystem");
 
 const r = {};
 
@@ -16,7 +17,7 @@ flettKildedata(
 
 sjekkAtTitlerEksisterer();
 capsTitler();
-kobleForeldre();
+typesystem.kobleForeldre(r);
 overrideDefects();
 propagerNedFlaggAttributt();
 
@@ -64,27 +65,6 @@ function flettKildedata(filename) {
   let o = data;
   if (o.items) o = json.arrayToObject(data.items, { uniqueKey: "kode" });
   flettAttributter(o);
-}
-
-function finnForeldre(kode) {
-  const rotkode = "NN-NA";
-  if (kode === rotkode) return [];
-  const segs = splittKode(kode);
-  if (segs.length <= 1) return [rotkode];
-  const len = segs[segs.length - 1].length;
-  kode = kode.substring(0, kode.length - len);
-  while (kode.length > 0) {
-    if (kode in r) return [kode];
-    kode = kode.substring(0, kode.length - 1);
-  }
-  return [rotkode];
-}
-
-function kobleForeldre() {
-  for (let key of Object.keys(r)) {
-    const node = r[key];
-    if (!node.foreldre) node.foreldre = finnForeldre(key);
-  }
 }
 
 function propagerNedFlaggAttributt() {
@@ -142,4 +122,4 @@ function sjekkAtTitlerEksisterer() {
   }
 }
 
-io.skrivBuildfil(__filename, json.objectToArray(r, "kode"));
+io.skrivDatafil(__filename, r);
