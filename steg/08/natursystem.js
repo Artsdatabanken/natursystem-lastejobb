@@ -5,10 +5,12 @@ const r = {};
 const nivåer = {
   Natursystem: {
     Beskrivelsessystem: {
-      nivå: ["Beskrivelsesystem", "Kilde til variasjon", "Variabel", "Verdi"]
+      nivå: ["Beskrivelsesystem", "Kilde til variasjon", "Variabel", "Verdi"],
+      målestokk: [5000, 5000, 5000, 5000]
     },
     Miljøvariabler: {
-      nivå: ["Lokal kompleks miljøvariabel", "Miljøvariabel", "Basistrinn"]
+      nivå: ["Lokal kompleks miljøvariabel", "Miljøvariabel", "Basistrinn"],
+      målestokk: [5000, 5000, 5000]
     },
     Typeinndeling: {
       nivå: [
@@ -18,33 +20,36 @@ const nivåer = {
         "Kartleggingsenhet 1:20000",
         "Kartleggingsenhet 1:5000",
         "Grunntype"
-      ]
+      ],
+      målestokk: [20000, 20000, 20000, 20000, 5000, 5000]
     },
-    nivå: ["Natursystem"]
+    nivå: ["Natursystem"],
+    målestokk: [20000]
   }
 };
-
-// node.undernivå
 
 let tre = io.lesDatafil("flett");
 Object.keys(tre).forEach(kode => oppdaterNivå(kode));
 io.skrivBuildfil(__filename, json.objectToArray(tre, "kode"));
 
 function oppdaterNivå(kode) {
-  const forf = getStack(kode);
-  tre[kode].nivå = hentNivå(forf, nivåer);
+  const segmenter = getStack(kode);
+  const node = tre[kode];
+  node.nivå = hentNivå("nivå", segmenter, nivåer);
+  node.kart = node.kart || {};
+  node.kart.målestokk = hentNivå("målestokk", segmenter, nivåer);
 }
 
-function hentNivå(forf, nivåer) {
-  if (forf.length === 0) return nivåer.nivå && nivåer.nivå[0];
-  const subnivåer = nivåer[forf[0]];
-  if (subnivåer) return hentNivå(forf.slice(1), subnivåer);
+function hentNivå(nøkkel, segmenter, nivåer) {
+  if (segmenter.length === 0) return nivåer[nøkkel] && nivåer[nøkkel][0];
+  const subnivåer = nivåer[segmenter[0]];
+  if (subnivåer) return hentNivå(nøkkel, segmenter.slice(1), subnivåer);
 
-  if (!nivåer.nivå) return log.warn("Mangler nivå for " + forf[0]);
-  const index = forf.length;
-  if (index >= nivåer.nivå.length)
-    return log.warn("Mangler dypere nivå " + forf[0]);
-  return nivåer.nivå[index];
+  if (!nivåer[nøkkel]) return log.warn("Mangler nivå for " + segmenter[0]);
+  const index = segmenter.length;
+  if (index >= nivåer[nøkkel].length)
+    return log.warn("Mangler dypere nivå " + segmenter[0]);
+  return nivåer[nøkkel][index];
 }
 
 function getStack(kode) {
