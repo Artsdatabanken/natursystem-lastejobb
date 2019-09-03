@@ -1,5 +1,6 @@
 const { io } = require("lastejobb");
 const log = require("log-less-fancy")();
+const typesystem = require("@artsdatabanken/typesystem");
 
 // Lager liste av natursystemtyper og miljøvariabler
 
@@ -8,6 +9,8 @@ let variasjon = io.lesDatafil("mi_variasjon");
 let overrides = io.lesDatafil("na_overstyr_hierarki");
 
 const alle = Object.assign({}, ninkoder, variasjon);
+typesystem.kobleForeldre(alle);
+
 let noder = {};
 
 let fjernet = [];
