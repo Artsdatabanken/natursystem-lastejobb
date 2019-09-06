@@ -38,6 +38,7 @@ function oppdaterNivå(kode) {
   const segmenter = getStack(kode);
   const node = tre[kode];
   node.nivå = hentNivå("nivå", segmenter, hierarki);
+  //  if (node.nivå === undefined) log.warn(node);
   node.kart = node.kart || {};
   node.kart.målestokk = hentNivå("målestokk", segmenter, hierarki);
 }

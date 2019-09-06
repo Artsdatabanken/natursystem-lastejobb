@@ -25,6 +25,11 @@ propagerNedFlaggAttributt();
 // For å unngå en heap av trøbbel justerer vi kodene inn rett under LKM og dropper
 // mellomnivået
 function overrideDefects() {
+  splittTitlerMed2Språk("NN-NA-BS-2BE", "en");
+  splittTitlerMed2Språk("NN-NA-BS-1AR", "la");
+  splittTitlerMed2Språk("NN-NA-LKM-SA", "la");
+  splittTitlerMed2Språk("NN-NA-LKM-DM", "la");
+  //  splittTitlerMed2Språk("", "la");
   const koder = ["NN-NA-LKM-S3-E", "NN-NA-LKM-S3-F", "NN-NA-LKM-S3-S"];
   Object.keys(r).forEach(kode => {
     const node = r[kode];
@@ -42,6 +47,21 @@ function overrideDefects() {
     });
   });
   delete r["NN-NA-LKM-S3"];
+}
+
+function splittTitlerMed2Språk(kodeprefix, språkkode) {
+  Object.keys(r).forEach(kode => {
+    if (!kode.startsWith(kodeprefix)) return;
+    const node = r[kode];
+    const tittel = node.tittel;
+    // 'Vulkansk bergart (volcanic rock)' =>  nb: vulkansk, en: volcanic
+    const parts = tittel.nb.split("(");
+    if (parts.length !== 2) return;
+    if (kodeprefix === "") log.warn(kode, tittel);
+    tittel.nb = parts[0].trim();
+    const utlandsk = parts[1].replace(")", "");
+    tittel[språkkode] = utlandsk[0].toUpperCase() + utlandsk.substring(1);
+  });
 }
 
 function flettAttributter(o) {
