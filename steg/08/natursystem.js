@@ -1,8 +1,10 @@
 const { io, log, json } = require("lastejobb");
 
+// Setter nivå og målestokk
+
 const r = {};
 
-const nivåer = {
+const hierarki = {
   Natursystem: {
     Beskrivelsessystem: {
       nivå: ["Beskrivelsesystem", "Kilde til variasjon", "Variabel", "Verdi"],
@@ -35,9 +37,9 @@ io.skrivBuildfil(__filename, json.objectToArray(tre, "kode"));
 function oppdaterNivå(kode) {
   const segmenter = getStack(kode);
   const node = tre[kode];
-  node.nivå = hentNivå("nivå", segmenter, nivåer);
+  node.nivå = hentNivå("nivå", segmenter, hierarki);
   node.kart = node.kart || {};
-  node.kart.målestokk = hentNivå("målestokk", segmenter, nivåer);
+  node.kart.målestokk = hentNivå("målestokk", segmenter, hierarki);
 }
 
 function hentNivå(nøkkel, segmenter, nivåer) {
