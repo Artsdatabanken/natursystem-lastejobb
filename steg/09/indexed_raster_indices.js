@@ -5,6 +5,7 @@ let hierarki = io.lesDatafil("kodehierarki");
 const barnAv = hierarki.barn;
 
 lagIndexerForRasterkart("NN-NA-BS-2BE");
+io.skrivDatafil(__filename, tre);
 
 function lagIndexerForRasterkart(kode) {
   let cursor = { index: 1 };
@@ -14,13 +15,11 @@ function lagIndexerForRasterkart(kode) {
 function traverser(r, kode, cursor) {
   const node = r[kode];
   const barna = barnAv[kode];
-  if (!barna) {
-    if (!node.kart) node.kart = {};
-    if (!node.kart.format) node.kart.format = {};
-    if (!node.kart.format.raster_indexed) node.kart.format.raster_indexed = {};
-    node.kart.format.raster_indexed.index = cursor.index;
-    cursor.index++;
-    return;
-  }
-  barns.forEach(barn => traverser(r, barn.kode, cursor));
+
+  if (!node.kart) node.kart = {};
+  if (!node.kart.format) node.kart.format = {};
+  if (!node.kart.format.raster_indexed) node.kart.format.raster_indexed = {};
+  node.kart.format.raster_indexed.index = cursor.index;
+  cursor.index++;
+  if (barna) barna.forEach(barn => traverser(r, barn, cursor));
 }
