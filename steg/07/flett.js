@@ -15,11 +15,16 @@ flettKildedata(
   "nin-data/Natur_i_Norge/Natursystem/Beskrivelsessystem/Regional_naturvariasjon/type"
 );
 
+fjernCrap();
 sjekkAtTitlerEksisterer();
 capsTitler();
 typesystem.kobleForeldre(r);
 overrideDefects();
 propagerNedFlaggAttributt();
+
+function fjernCrap() {
+  delete r["NN-NA-BS-2FO-X"];
+}
 
 // På sedimentsortering er det innført et ekstra tullenivå som bryter med systemet
 // For å unngå en heap av trøbbel justerer vi kodene inn rett under LKM og dropper
