@@ -2,8 +2,6 @@ const { io, log, json } = require("lastejobb");
 
 // Setter nivå og målestokk
 
-const r = {};
-
 const hierarki = {
   Natursystem: {
     Beskrivelsessystem: {
@@ -32,6 +30,7 @@ const hierarki = {
 
 let tre = io.lesDatafil("flett");
 Object.keys(tre).forEach(kode => oppdaterNivå(kode));
+
 io.skrivBuildfil(__filename, json.objectToArray(tre, "kode"));
 
 function oppdaterNivå(kode) {
