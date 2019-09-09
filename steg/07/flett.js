@@ -16,6 +16,7 @@ flettKildedata(
 flettKildedata(
   "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Beskrivelsessystem/Regional_naturvariasjon/type"
 );
+flett("farger");
 
 fjernCrap();
 sjekkAtTitlerEksisterer();
