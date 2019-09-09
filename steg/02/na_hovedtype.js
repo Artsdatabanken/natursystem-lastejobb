@@ -1,7 +1,7 @@
 const { io } = require("lastejobb");
 
 let hovedtyper = io.readJson(
-  "nin-data/Natur_i_Norge/Natursystem/Typeinndeling/hovedtype.json"
+  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Typeinndeling/hovedtype.json"
 );
 
 function fromCsv(csv) {

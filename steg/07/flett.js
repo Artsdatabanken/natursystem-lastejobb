@@ -9,10 +9,12 @@ flett("na_mi_liste");
 flett("mi_variasjon");
 flett("na_prosedyrekategori");
 flett("na_definisjonsgrunnlag");
-flettKildedata("nin-data/Natur_i_Norge/Natursystem/type");
-flettKildedata("nin-data/Natur_i_Norge/Natursystem/Miljøvariabler/type");
+flettKildedata("data/nin-egenskapsdata/Natur_i_Norge/Natursystem/type");
 flettKildedata(
-  "nin-data/Natur_i_Norge/Natursystem/Beskrivelsessystem/Regional_naturvariasjon/type"
+  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Miljøvariabler/type"
+);
+flettKildedata(
+  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Beskrivelsessystem/Regional_naturvariasjon/type"
 );
 
 fjernCrap();

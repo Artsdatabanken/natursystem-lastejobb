@@ -1,10 +1,10 @@
 const { io } = require("lastejobb");
 
 let koder = io.readJson(
-  "nin-data/Natur_i_Norge/Natursystem/kodeliste_v2b_variasjon.json"
+  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/kodeliste_v2b_variasjon.json"
 ).data;
 let banlist = io.readJson(
-  "nin-data/Natur_i_Norge/Natursystem/kodeliste_v2b_variasjon.ignore.json"
+  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/kodeliste_v2b_variasjon.ignore.json"
 );
 
 function kodefix(kode) {

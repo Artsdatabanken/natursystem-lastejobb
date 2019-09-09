@@ -5,7 +5,7 @@ const { io } = require("lastejobb");
 // Dette for at grovere nivåer da tar med seg mer spesifikke data og viser også disse dataene.
 
 let grunntyper = io.readJson(
-  "nin-data/Natur_i_Norge/Natursystem/Typeinndeling/kartleggingsenhet.json"
+  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Typeinndeling/kartleggingsenhet.json"
 );
 
 let foreldre = {};
