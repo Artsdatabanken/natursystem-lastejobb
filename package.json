@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pull": "node index pull",
-    "build": "node index.js",
+    "download": "node index download",
+    "transform": "node index transform",
+    "build": "npm run download && npm run transform",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

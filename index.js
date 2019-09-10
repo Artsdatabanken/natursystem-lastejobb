@@ -1,4 +1,5 @@
-const lastejobb = require("lastejobb");
+if (!process.env.DEBUG) process.env.DEBUG = "*";
+const { kjørLastejobberUnder } = require("lastejobb");
 
-const scripPath = process.argv[2] || "steg";
-lastejobb.kjørLastejobberUnder(scripPath);
+const scripPath = "stages/" + (process.argv[2] || "");
+kjørLastejobberUnder(scripPath);
