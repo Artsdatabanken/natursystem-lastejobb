@@ -20,7 +20,7 @@ function importerKoder() {
     const kode = kodefix(node.Kode.Id);
     const ingresskode = node.Kode.Id.replace(" ", "-");
     let o = { tittel: { nb: node.Navn } };
-    if (ingress[ingresskode]) o.ingress = ingress[ingresskode];
+    if (ingress[ingresskode]) o.ingress = { nb: ingress[ingresskode] };
     mineKoder[kode] = o;
   }
   return mineKoder;
