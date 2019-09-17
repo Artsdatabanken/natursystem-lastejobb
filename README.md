@@ -1,1 +1,1 @@
-Leser Natur i Norge natursystem kildedata fra https://github.com/Artsdatabanken/nin-kildedata/tree/master/Natur_i_Norge/Natursystem og produserer sammensatt fil med egenskaper for miljøvariabler, beskrivelsessystem og naturtyper i https://github.com/Artsdatabanken/natursystem
+Leser Natur i Norge natursystem kildedata fra https://github.com/Artsdatabanken/natursystem-ubehandlet og produserer sammensatt fil med egenskaper for miljøvariabler, beskrivelsessystem og naturtyper i https://github.com/Artsdatabanken/natursystem

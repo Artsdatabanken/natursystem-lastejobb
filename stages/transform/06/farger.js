@@ -13,9 +13,7 @@ function settFarger(kilde, mapper) {
 const lighten = node => tinycolor(node).lighten(20);
 
 settFarger(
-  io.readJson(
-    "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Typeinndeling/farger_dominant.json"
-  ),
+  io.readJson("data/natursystem-ubehandlet/Typeinndeling/farger_dominant.json"),
   lighten
 );
 

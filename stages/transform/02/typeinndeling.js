@@ -1,10 +1,9 @@
 const { io } = require("lastejobb");
 
-let alleKoder = io.readJson(
-  "./data/nin-egenskapsdata/Natur_i_Norge/Natursystem/kodeliste_v2b.json"
-).data;
+let alleKoder = io.readJson("./data/natursystem-ubehandlet/kodeliste_v2b.json")
+  .data;
 let ingress = io.readJson(
-  "./data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Typeinndeling/beskrivelse.json"
+  "./data/natursystem-ubehandlet/Typeinndeling/beskrivelse.json"
 );
 
 function kodefix(kode) {

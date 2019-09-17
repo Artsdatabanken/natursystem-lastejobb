@@ -4,7 +4,7 @@ const log = require("log-less-fancy")();
 log.logLevel = 6;
 
 let diagArt = io.readJson(
-  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/Typeinndeling/diagnostisk_art.json"
+  "data/natursystem-ubehandlet/Typeinndeling/diagnostisk_art.json"
 );
 let typeinndeling = io.lesDatafil("typeinndeling");
 

@@ -1,15 +1,13 @@
 const { io } = require("lastejobb");
 
-let koder = io.readJson(
-  "data/nin-egenskapsdata/Natur_i_Norge/Natursystem/kartleggingsprogram.json"
-);
+let koder = io.readJson("data/natursystem-ubehandlet/kartleggingsprogram.json");
 
 function importerProsjekter(prosjekter) {
   for (let key of Object.keys(prosjekter)) {
     const node = prosjekter[key];
     const id = node.navn;
     const parts = id.replace(/\s/, "_").split("_");
-    // https://github.com/Artsdatabanken/data/nin-egenskapsdata-lastejobb/issues/56
+    // https://github.com/Artsdatabanken/data/natursystem-ubehandlet-lastejobb/issues/56
   }
 }
 

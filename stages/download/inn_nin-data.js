@@ -1,7 +1,6 @@
 const { git } = require("lastejobb");
 
-// Download "Natur i Norge" data kildedata
 git.clone(
-  "https://github.com/Artsdatabanken/nin-egenskapsdata.git",
-  "data/nin-egenskapsdata"
+  "https://github.com/Artsdatabanken/natursystem-ubehandlet.git",
+  "data/natursystem-ubehandlet"
 );
