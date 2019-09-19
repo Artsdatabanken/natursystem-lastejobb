@@ -46,10 +46,15 @@ function overrideDefects() {
           rel.kode = rel.kode.replace("NN-NA-LKM-S3-", "NN-NA-LKM-S3");
         });
       }
+      if (kode.indexOf("S3S") >= 0) debugger;
+      if (m === "NN-NA-LKM-S3-S") {
+      }
       if (!kode.startsWith(m)) return;
       const destKode = kode.replace("S3-", "S3");
       node.foreldre[0] = kode === m ? "NN-NA-LKM" : m.replace("S3-", "S3");
-      json.moveKey(r, kode, destKode);
+      r[destKode] = Object.assign(r[destKode] || {}, node);
+      delete r[kode];
+      //      json.moveKey(r, kode, destKode);
     });
   });
   delete r["NN-NA-LKM-S3"];

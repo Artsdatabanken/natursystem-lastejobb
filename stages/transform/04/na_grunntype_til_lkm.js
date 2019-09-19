@@ -58,9 +58,7 @@ rows.forEach(row => {
     if (e.startsWith("HS*")) return; // Se bort fra hovedtypetilpasset
     const list = decode(e);
     list.forEach(mi => {
-      if (mi.indexOf("S3-") >= 0) debugger;
       if (!(mi in mi_liste)) {
-        debugger;
         log.warn(mi, mi);
         return (ukjent_mi[mi] = (ukjent_mi[mi] || 0) + 1);
       }
