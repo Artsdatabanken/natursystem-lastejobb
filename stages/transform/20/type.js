@@ -28,7 +28,7 @@ const hierarki = {
   }
 };
 
-let tre = io.lesDatafil("indexed_raster_indices");
+let tre = io.lesDatafil("url");
 Object.keys(tre).forEach(kode => oppdaterNivå(kode));
 
 io.skrivBuildfil(__filename, json.objectToArray(tre, "kode"));
