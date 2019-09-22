@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Artsdatabanken/natursystem-lastejobb#readme",
   "dependencies": {
     "@artsdatabanken/typesystem": "^10.6.3",
-    "lastejobb": "^2.5.0",
+    "lastejobb": "^2.6.2",
     "tinycolor2": "^1.4.1"
   }
 }
