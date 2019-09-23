@@ -4,7 +4,7 @@ let tre = io.lesDatafil("flett");
 let hierarki = io.lesDatafil("kodehierarki");
 const barnAv = hierarki.barn;
 
-lagIndexerForRasterkart("NN-NA-BS-2BE");
+lagIndexerForRasterkart("NN-NA-BS-2BE"); // Bergart
 io.skrivDatafil(__filename, tre);
 
 function lagIndexerForRasterkart(kode) {
