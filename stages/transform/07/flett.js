@@ -9,11 +9,9 @@ flett("na_mi_liste");
 flett("mi_variasjon");
 flett("na_prosedyrekategori");
 flett("na_definisjonsgrunnlag");
-flettKildedata("temp/natursystem-ubehandlet/type");
-flettKildedata("temp/natursystem-ubehandlet/Miljøvariabler/type");
-flettKildedata(
-  "temp/natursystem-ubehandlet/Beskrivelsessystem/Regional_naturvariasjon/type"
-);
+flett("natursystem-ubehandlet/type");
+flett("natursystem-ubehandlet/Miljøvariabler/type");
+flett("natursystem-ubehandlet/Beskrivelsessystem/Regional_naturvariasjon/type");
 flett("farger");
 
 fjernCrap();
@@ -83,13 +81,6 @@ function flettAttributter(o) {
 
 function flett(filename) {
   var data = io.lesDatafil(filename);
-  let o = data;
-  if (o.items) o = json.arrayToObject(data.items, { uniqueKey: "kode" });
-  flettAttributter(o);
-}
-
-function flettKildedata(filename) {
-  var data = io.readJson(filename + ".json");
   let o = data;
   if (o.items) o = json.arrayToObject(data.items, { uniqueKey: "kode" });
   flettAttributter(o);
