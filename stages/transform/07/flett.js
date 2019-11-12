@@ -9,10 +9,10 @@ flett("na_mi_liste");
 flett("mi_variasjon");
 flett("na_prosedyrekategori");
 flett("na_definisjonsgrunnlag");
-flettKildedata("data/natursystem-ubehandlet/type");
-flettKildedata("data/natursystem-ubehandlet/Miljøvariabler/type");
+flettKildedata("temp/natursystem-ubehandlet/type");
+flettKildedata("temp/natursystem-ubehandlet/Miljøvariabler/type");
 flettKildedata(
-  "data/natursystem-ubehandlet/Beskrivelsessystem/Regional_naturvariasjon/type"
+  "temp/natursystem-ubehandlet/Beskrivelsessystem/Regional_naturvariasjon/type"
 );
 flett("farger");
 
@@ -77,7 +77,7 @@ function flettAttributter(o) {
     let kode = key.replace("_", "-");
     kode = kode.toUpperCase();
     const src = o[key];
-    r[kode] = Object.assign({}, r[kode], src);
+    r[kode] = json.mergeDeep(r[kode] || {}, src);
   }
 }
 

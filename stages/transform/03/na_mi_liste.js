@@ -1,6 +1,5 @@
 const { io } = require("lastejobb");
 const log = require("log-less-fancy")();
-const typesystem = require("@artsdatabanken/typesystem");
 
 // Lager liste av natursystemtyper og miljøvariabler
 
@@ -9,16 +8,11 @@ let variasjon = io.lesDatafil("mi_variasjon");
 let overrides = io.lesDatafil("na_overstyr_hierarki");
 
 const alle = Object.assign({}, typeinndeling, variasjon);
-//alle["NN-NA"] = { tittel: { nb: "Natursystem" } };
-//alle["NN-NA-TI"].foreldre = ["NN-NA"];
-//typesystem.kobleForeldre(alle);
-//debugger;
-let noder = {};
 
+let noder = {};
 let fjernet = [];
 
 function skalMedISystemet(kode) {
-  // if (typesystem.Natursystem.erGrunntype(kode)) return false
   // Kartleggingsenheter B og D utgår, men blir fjernet automatisk siden vi ikke har data der
   if (kode.match(/NN-NA-.*-B-/g) || kode.match(/NN-NA-.*-D-/g)) return false;
   return true;

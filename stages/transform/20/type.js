@@ -3,35 +3,38 @@ const { io, log, json } = require("lastejobb");
 // Setter nivå og målestokk
 
 const hierarki = {
-  Natursystem: {
-    Beskrivelsessystem: {
-      målestokk: [20000, 20000, 20000, 20000, 20000, 20000, 20000]
-    },
-    Miljøvariabler: {
-      nivå: ["Lokal kompleks miljøvariabel", "Miljøvariabel", "Basistrinn"],
-      målestokk: [5000, 5000, 5000],
-      "Definisjonsgrunnlag for hovedtypen": {
+  "Natur i Norge": {
+    Natursystem: {
+      Beskrivelsessystem: {
+        målestokk: [20000, 20000, 20000, 20000, 20000, 20000, 20000]
+      },
+      nivå: "Natursystem",
+      Miljøvariabler: {
+        nivå: ["Lokal kompleks miljøvariabel", "Miljøvariabel", "Basistrinn"],
         målestokk: [5000, 5000, 5000],
+        "Definisjonsgrunnlag for hovedtypen": {
+          målestokk: [5000, 5000, 5000],
+          nivå: [
+            "Definisjonsgrunnlag for hovedtypen",
+            "Definisjonsgrunnlag for hovedtypen",
+            "Definisjonsgrunnlag for hovedtypen"
+          ]
+        }
+      },
+      Typeinndeling: {
         nivå: [
-          "Definisjonsgrunnlag for hovedtypen",
-          "Definisjonsgrunnlag for hovedtypen",
-          "Definisjonsgrunnlag for hovedtypen"
-        ]
-      }
-    },
-    Typeinndeling: {
-      nivå: [
-        "Naturtype",
-        "Hovedtypegruppe",
-        "Hovedtype",
-        "Kartleggingsenhet 1:20000",
-        "Kartleggingsenhet 1:5000",
-        "Grunntype"
-      ],
-      målestokk: [20000, 20000, 20000, 20000, 5000, 5000]
-    },
-    nivå: ["Naturmangfoldnivå"],
-    målestokk: [20000]
+          "Naturtype",
+          "Hovedtypegruppe",
+          "Hovedtype",
+          "Kartleggingsenhet 1:20000",
+          "Kartleggingsenhet 1:5000",
+          "Grunntype"
+        ],
+        målestokk: [20000, 20000, 20000, 20000, 5000, 5000]
+      },
+      nivå: ["Naturmangfoldnivå"],
+      målestokk: [20000]
+    }
   }
 };
 
@@ -45,7 +48,6 @@ io.skrivBuildfil(__filename, json.objectToArray(tre, "kode"));
 function oppdaterNivå(kode) {
   const stack = getStack(kode);
   const node = tre[kode];
-  if (kode.endsWith("0L")) debugger;
   node.nivå = hentNivå("nivå", stack, hierarki, kode);
   if (!node.nivå) throw new Error("Mangler nivå for " + kode);
   node.kart = node.kart || {};
@@ -53,12 +55,15 @@ function oppdaterNivå(kode) {
 }
 
 function hentNivå(nøkkel, segmenter, hierarki, kode) {
+  if (kode === "NN") return nøkkel == "nivå" ? "Natur i Norge" : 20000;
   if (kode.startsWith("NN-NA-BS"))
     if (segmenter.length === 0) return hierarki[nøkkel] && hierarki[nøkkel][0];
   if (nøkkel === "nivå" && segmenter[0] === "Beskrivelsessystem")
     return nivåBeskrivelsessystem(kode);
   const subnivåer = hierarki[segmenter[0]];
-  if (subnivåer) return hentNivå(nøkkel, segmenter.slice(1), subnivåer, kode);
+  if (subnivåer)
+    // && segmenter.length > 1)
+    return hentNivå(nøkkel, segmenter.slice(1), subnivåer, kode);
 
   if (!hierarki[nøkkel]) {
     return log.warn("Mangler " + nøkkel + " for " + segmenter[0]);

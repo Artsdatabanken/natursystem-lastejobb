@@ -1,9 +1,9 @@
 const { io } = require("lastejobb");
 
-let alleKoder = io.readJson("./data/natursystem-ubehandlet/kodeliste_v2b.json")
+let alleKoder = io.readJson("./temp/natursystem-ubehandlet/kodeliste_v2b.json")
   .data;
 let ingress = io.readJson(
-  "./data/natursystem-ubehandlet/Typeinndeling/beskrivelse.json"
+  "./temp/natursystem-ubehandlet/Typeinndeling/beskrivelse.json"
 );
 
 function kodefix(kode) {

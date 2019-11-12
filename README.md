@@ -4,7 +4,7 @@ Leser Natur i Norge natursystem kildedata fra https://github.com/Artsdatabanken/
 
 ## Kataloger
 
-- `stages/download`: Script for å laste ned eksterne datafiler til `data/`
+- `stages/download`: Script for å laste ned eksterne datafiler til `temp/`
 - `stages/transform`: Script som produserer resultatet og legger det i `build/`
 - `build`: Filene som kommer ut av lastejobben
 - `data`: Temporær lagring av nedlastede data og mellomformater

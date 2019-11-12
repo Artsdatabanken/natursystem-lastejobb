@@ -1,7 +1,7 @@
 const { io } = require("lastejobb");
 
 let hovedtyper = io.readJson(
-  "data/natursystem-ubehandlet/Typeinndeling/hovedtype.json"
+  "temp/natursystem-ubehandlet/Typeinndeling/hovedtype.json"
 );
 
 function fromCsv(csv) {

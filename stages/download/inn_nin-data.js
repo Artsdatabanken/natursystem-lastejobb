@@ -2,5 +2,5 @@ const { git } = require("lastejobb");
 
 git.clone(
   "https://github.com/Artsdatabanken/natursystem-ubehandlet.git",
-  "data/natursystem-ubehandlet"
+  "temp/natursystem-ubehandlet"
 );
