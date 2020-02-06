@@ -11,6 +11,7 @@ flett("na_prosedyrekategori");
 flett("na_definisjonsgrunnlag");
 flett("natursystem-ubehandlet/type");
 flett("natursystem-ubehandlet/Miljøvariabler/type");
+flett("natursystem-ubehandlet/Beskrivelsessystem/Landform/type");
 flett("natursystem-ubehandlet/Beskrivelsessystem/Regional_naturvariasjon/type");
 flett("farger");
 
