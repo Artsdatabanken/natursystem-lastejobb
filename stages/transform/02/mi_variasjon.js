@@ -28,7 +28,8 @@ function importerKoder() {
     if (banlist[kode]) continue;
     const tittel = node.Navn;
     let o = {
-      tittel: { nb: tittel }
+      tittel: { nb: tittel },
+      altkode: node.Kode.Id
     };
     mineKoder[kode] = o;
   }

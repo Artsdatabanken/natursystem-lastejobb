@@ -16,6 +16,7 @@ const kode_definisjonsgrunnlag = "NN-NA-TI-HT-DG";
 r = {};
 hovedtyper.forEach(ht => {
   let me = {};
+  me.altkode = ht.HTK
   me.nivå = "hovedtype";
   const hg = parseInt(ht["Kunnskapsgrunnlag - Hovedtypen generelt"]);
   const gi = parseInt(ht["Kunnskapsgrunnlag - Grunntypeinndelingen"]);

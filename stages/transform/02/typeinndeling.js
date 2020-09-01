@@ -18,7 +18,7 @@ function importerKoder() {
   for (let node of alleKoder) {
     const kode = kodefix(node.Kode.Id);
     const ingresskode = node.Kode.Id.replace(" ", "-");
-    let o = { tittel: { nb: node.Navn } };
+    let o = { tittel: { nb: node.Navn }, altkode: node.Kode.Id.replace("NA ", "") };
     if (ingress[ingresskode]) o.ingress = { nb: ingress[ingresskode] };
     mineKoder[kode] = o;
   }
