@@ -35,8 +35,21 @@ function importerKoder() {
   }
   return mineKoder;
 }
+function merkGradienter(imp) {
+  for (var kode of Object.keys(imp)) {
+    const parts = kode.split('-')
+    if (parts.length < 5) continue
+    const key = parts.pop()
+    if ("01234567890".indexOf(key) < 0) continue
+    const parentkode = parts.join('-')
+    const parent = imp[parentkode]
+    if (parent)
+      parent.type = "gradient"
+  }
+}
 
 const imp = importerKoder();
+merkGradienter(imp)
 imp["NN-NA-LKM"].tittel.nb = "Miljøvariabler";
 
 io.skrivDatafil(__filename, imp);
