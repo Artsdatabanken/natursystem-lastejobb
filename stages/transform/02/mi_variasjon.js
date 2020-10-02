@@ -40,11 +40,13 @@ function merkGradienter(imp) {
     const parts = kode.split('-')
     if (parts.length < 5) continue
     const key = parts.pop()
-    if ("01234567890".indexOf(key) < 0) continue
+    if ("123456789".indexOf(key) < 0) continue  // Enkelte har en 0 uten at de er en gradient
     const parentkode = parts.join('-')
     const parent = imp[parentkode]
-    if (parent)
+    if (parent) {
+      if (parentkode === "NN-NA-BS-7SD") debugger
       parent.type = "gradient"
+    }
   }
 }
 
