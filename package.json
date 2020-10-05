@@ -4,10 +4,10 @@
   "description": "",
   "scripts": {
     "start": "npm run build",
-    "download": "node node_modules/lastejobb/index stages/download",
-    "transform": "node --max_old_space_size=28192 node_modules/lastejobb/index stages/transform",
+    "download": "node node_modules/lastejobb/lastejobb stages/download",
+    "transform": "node --max_old_space_size=28192 node_modules/lastejobb/lastejobb stages/transform",
     "build": "npm run download && npm run transform",
-    "deploy": "node  --max_old_space_size=28192 node_modules/lastejobb/index stages/deploy",
+    "deploy": "node  --max_old_space_size=28192 node_modules/lastejobb/lastejobb stages/deploy",
     "precommit": "pretty-quick --staged"
   },
   "repository": {

@@ -81,7 +81,7 @@ function flettAttributter(o) {
 }
 
 function flett(filename) {
-  var data = io.lesDatafil(filename);
+  var data = io.lesTempJson(filename);
   let o = data;
   if (o.items) o = json.arrayToObject(data.items, { uniqueKey: "kode" });
   flettAttributter(o);
@@ -95,6 +95,7 @@ function propagerNedFlaggAttributt() {
       if (!foreldernode)
         throw new Error(`Forelderen ${fkode} til ${kode} mangler.`);
       if (r[fkode].type === "flagg") node.type = "flagg";
+
       if (r[fkode].type === "gradient") node.type = "gradientverdi";
     }
     if (kode.startsWith("NN-NA-LKM"))

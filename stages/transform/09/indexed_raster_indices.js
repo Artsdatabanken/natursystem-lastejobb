@@ -1,7 +1,7 @@
 const { io } = require("lastejobb");
 
-let tre = io.lesDatafil("flett");
-let hierarki = io.lesDatafil("kodehierarki");
+let tre = io.lesTempJson("flett");
+let hierarki = io.lesTempJson("kodehierarki");
 const barnAv = hierarki.barn;
 
 lagIndexerForRasterkart("NN-NA-BS");

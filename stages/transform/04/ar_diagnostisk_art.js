@@ -6,7 +6,7 @@ log.logLevel = 6;
 let diagArt = io.readJson(
   "temp/natursystem-ubehandlet/Typeinndeling/diagnostisk_art.json"
 );
-let typeinndeling = io.lesDatafil("typeinndeling");
+let typeinndeling = io.lesTempJson("typeinndeling");
 
 let r = {};
 

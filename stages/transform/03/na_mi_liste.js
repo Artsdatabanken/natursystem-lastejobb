@@ -3,9 +3,9 @@ const log = require("log-less-fancy")();
 
 // Lager liste av natursystemtyper og miljøvariabler
 
-let typeinndeling = io.lesDatafil("typeinndeling");
-let variasjon = io.lesDatafil("mi_variasjon");
-let overrides = io.lesDatafil("na_overstyr_hierarki");
+let typeinndeling = io.lesTempJson("typeinndeling");
+let variasjon = io.lesTempJson("mi_variasjon");
+let overrides = io.lesTempJson("na_overstyr_hierarki");
 
 const alle = Object.assign({}, typeinndeling, variasjon);
 
@@ -39,7 +39,7 @@ for (let kode of Object.keys(alle)) {
 fjernet.length > 0 &&
   log.debug(
     "Koder som ble fjernet fordi det er definert at de ikke skal med: " +
-      fjernet.length
+    fjernet.length
   );
 
 io.skrivDatafil(__filename, noder);

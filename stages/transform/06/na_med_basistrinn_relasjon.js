@@ -1,6 +1,6 @@
 const { io, json } = require("lastejobb");
 
-let basistrinn = io.lesDatafil("na_grunntype_til_lkm");
+let basistrinn = io.lesTempJson("na_grunntype_til_lkm");
 
 const na = flettNatursystemOgLkm();
 const ht = {};
@@ -20,8 +20,8 @@ Object.keys(basistrinn).forEach(grunntype => {
 delete ht["NN-NA"];
 
 function flettNatursystemOgLkm() {
-  let na = io.lesDatafil("na_med_hovedtype_relasjon");
-  let mi = io.lesDatafil("na_mi_liste");
+  let na = io.lesTempJson("na_med_hovedtype_relasjon");
+  let mi = io.lesTempJson("na_mi_liste");
   Object.keys(mi).forEach(
     kode => (na[kode] = json.mergeDeep(na[kode] || {}, mi[kode]))
   );

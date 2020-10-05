@@ -15,6 +15,13 @@
       "request": "launch",
       "name": "Launch Program",
       "program": "${file}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Download",
+      "program": "node_modules/lastejobb/lastejobb",
+      "args": ["stages/download"]
     }
   ]
 }

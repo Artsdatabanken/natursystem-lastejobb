@@ -1,6 +1,6 @@
 const { io } = require("lastejobb")
 
-let hovedtyper = io.lesDatafil("na_hovedtype")
+let hovedtyper = io.lesTempJson("na_hovedtype")
 
 r = {}
 

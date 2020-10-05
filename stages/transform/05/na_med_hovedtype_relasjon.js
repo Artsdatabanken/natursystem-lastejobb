@@ -1,6 +1,6 @@
 const { io } = require("lastejobb");
 
-let na = io.lesDatafil("na_hovedtype");
+let na = io.lesTempJson("na_hovedtype");
 let r = {};
 
 const lkmTekst = {

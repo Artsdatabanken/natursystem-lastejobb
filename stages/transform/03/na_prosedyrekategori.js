@@ -1,7 +1,7 @@
 const { io } = require("lastejobb");
 
 // Leser prosedyrekategori for natursystem hovedtyper
-let hovedtyper = io.lesDatafil("na_hovedtype");
+let hovedtyper = io.lesTempJson("na_hovedtype");
 
 const r = {};
 

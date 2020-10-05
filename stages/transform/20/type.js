@@ -38,8 +38,8 @@ const hierarki = {
   }
 };
 
-let tre = io.lesDatafil("url");
-let kodehierarki = io.lesDatafil("kodehierarki");
+let tre = io.lesTempJson("url");
+let kodehierarki = io.lesTempJson("kodehierarki");
 const barnAv = kodehierarki.barn;
 Object.keys(tre).forEach(kode => oppdaterNivå(kode));
 

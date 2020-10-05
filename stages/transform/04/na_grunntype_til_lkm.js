@@ -1,9 +1,9 @@
 const { io } = require("lastejobb");
 const log = require("log-less-fancy")();
 
-let rows = io.lesDatafil("na_grunntype_til_lkm.csv.json").items;
-let typeinndeling = io.lesDatafil("typeinndeling");
-let mi_liste = io.lesDatafil("na_mi_liste");
+let rows = io.lesTempJson("na_grunntype_til_lkm.csv.json");
+let typeinndeling = io.lesTempJson("typeinndeling");
+let mi_liste = io.lesTempJson("na_mi_liste");
 const replace = {
   "S3-E": "S3E",
   "S3-F": "S3F",
