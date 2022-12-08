@@ -14,7 +14,7 @@ Leser Natur i Norge natursystem kildedata fra https://github.com/Artsdatabanken/
 ### Installere
 
 ```bash
-npm run install
+npm install
 ```
 
 Laster ned avhengige biblioteker til `node_modules`.
