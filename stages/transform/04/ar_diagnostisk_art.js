@@ -1,7 +1,4 @@
-const { io } = require("lastejobb");
-const log = require("log-less-fancy")();
-
-log.logLevel = 6;
+const { io, log } = require("@artsdatabanken/lastejobb");
 
 let diagArt = io.readJson(
   "temp/natursystem-ubehandlet/Typeinndeling/diagnostisk_art.json"

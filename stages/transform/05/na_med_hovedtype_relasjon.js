@@ -1,4 +1,4 @@
-const { io } = require("lastejobb");
+const { io } = require("@artsdatabanken/lastejobb");
 
 let na = io.lesTempJson("na_hovedtype");
 let r = {};

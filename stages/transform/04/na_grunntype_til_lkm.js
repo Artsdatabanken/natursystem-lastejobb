@@ -1,5 +1,4 @@
-const { io } = require("lastejobb");
-const log = require("log-less-fancy")();
+const { io, log } = require("@artsdatabanken/lastejobb");
 
 let rows = io.lesTempJson("na_grunntype_til_lkm.csv.json");
 let typeinndeling = io.lesTempJson("typeinndeling");

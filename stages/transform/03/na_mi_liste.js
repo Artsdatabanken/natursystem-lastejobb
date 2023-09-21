@@ -1,5 +1,4 @@
-const { io } = require("lastejobb");
-const log = require("log-less-fancy")();
+const { io, log } = require("@artsdatabanken/lastejobb");
 
 // Lager liste av natursystemtyper og miljøvariabler
 

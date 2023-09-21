@@ -1,4 +1,4 @@
-const { io } = require("lastejobb");
+const { io } = require("@artsdatabanken/lastejobb");
 
 // Grunntyper (eksempel NA_T1-1) henger i kodelista på hovedtypen (NA_T)
 // Vi ønsker følgende struktur NA_T -> NA_T1 -> NA_T1-E-1 -> NA_T1-C-1 -> NA_T1-1

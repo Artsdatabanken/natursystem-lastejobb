@@ -1,4 +1,4 @@
-const { io, log, json } = require("lastejobb");
+const { io, log, json } = require("@artsdatabanken/lastejobb");
 
 // Setter nivå og målestokk
 

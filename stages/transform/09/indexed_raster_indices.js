@@ -1,4 +1,4 @@
-const { io } = require("lastejobb");
+const { io } = require("@artsdatabanken/lastejobb");
 
 let tre = io.lesTempJson("flett");
 let hierarki = io.lesTempJson("kodehierarki");

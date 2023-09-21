@@ -1,4 +1,4 @@
-const { io, log, json } = require("lastejobb");
+const { io, log, json } = require("@artsdatabanken/lastejobb");
 const fs = require('fs')
 
 let tre = JSON.parse(fs.readFileSync("build/type.json"))

@@ -1,4 +1,4 @@
-const { io } = require("lastejobb");
+const { io } = require("@artsdatabanken/lastejobb");
 
 let hovedtyper = io.readJson(
   "temp/natursystem-ubehandlet/Typeinndeling/hovedtype.json"

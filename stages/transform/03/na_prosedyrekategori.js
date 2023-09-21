@@ -1,4 +1,4 @@
-const { io } = require("lastejobb");
+const { io } = require("@artsdatabanken/lastejobb");
 
 // Leser prosedyrekategori for natursystem hovedtyper
 let hovedtyper = io.lesTempJson("na_hovedtype");
