@@ -1,4 +1,4 @@
-const { io, json } = require("lastejobb");
+const { io, json } = require("@artsdatabanken/lastejobb");
 
 let basistrinn = io.lesTempJson("na_grunntype_til_lkm");
 

@@ -1,4 +1,4 @@
-const { csv, io } = require("lastejobb");
+const { csv, io } = require("@artsdatabanken/lastejobb");
 
 const kildefil =
   "./temp/natursystem-ubehandlet/Typeinndeling/basistrinn_per_grunntype.csv";

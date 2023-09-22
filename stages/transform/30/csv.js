@@ -1,13 +1,14 @@
-const { io, log, json } = require("lastejobb");
+const { io } = require("@artsdatabanken/lastejobb");
 const fs = require('fs')
 
+// TODO: Is this in use?
 let tre = JSON.parse(fs.readFileSync("build/type.json"))
 var lines = ""
 var altkodemap = {}
 const dupes = {}
 tre.items.forEach(item => printKode(item.kode, item.altkode));
 
-fs.writeFileSync('csv.sql', lines)
+fs.writeFileSync('temp/csv.sql', lines)
 io.skrivDatafil('altkode.json', altkodemap)
 
 function printKode(kode, altkode) {

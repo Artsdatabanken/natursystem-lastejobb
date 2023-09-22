@@ -1,0 +1,42 @@
+name: build and publish natursystem
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - run: npm install
+      - run: npm update
+      - run: npm run download
+      - run: npm run transform
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: "./destinationRepo"
+          token: ${{secrets.PUSH_TOKEN}}
+      - name: Run deployment script
+        run: ./.github/workflows/deploy.sh
+        shell: bash
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: ${{ github.event.repository.name }}.tar.gz
+          tag: v_${{ github.run_number }}
+  workflow_dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fyrer NiN
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT }}
+          repository: artsdatabanken/nin-data-lastejobb
+          event-type: fra_natursystem

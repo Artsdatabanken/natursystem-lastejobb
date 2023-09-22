@@ -1,7 +1,4 @@
-const { io } = require("lastejobb");
-const log = require("log-less-fancy")();
-
-log.logLevel = 6;
+const { io, log } = require("@artsdatabanken/lastejobb");
 
 let diagArt = io.readJson(
   "temp/natursystem-ubehandlet/Typeinndeling/diagnostisk_art.json"
@@ -25,7 +22,7 @@ const map = {
   "gradient-tyngdepunktart": true
 };
 
-function linkOne(kodeFra, kodeTil, funksjon, tag) {
+function linkOne(kodeFra, kodeTil, tag) {
   const variabel = tag;
 
   if (!kodeFra) throw new Error("Mangler kode: " + kodeFra);
@@ -45,7 +42,7 @@ function linkBoth(node1, node2, funksjon, tag) {
   if (!funksjon) return;
   tag = tag.trim().replace(" ", "_");
   funksjon = funksjon.trim();
-  linkOne(node1, node2, funksjon, tag);
+  linkOne(node1, node2, tag);
 }
 
 let ukjenteKoder = {};

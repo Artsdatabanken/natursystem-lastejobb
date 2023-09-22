@@ -1,4 +1,4 @@
-const { io, json, log } = require("lastejobb");
+const { io, json, log } = require("@artsdatabanken/lastejobb");
 const typesystem = require("@artsdatabanken/typesystem");
 
 const r = {};

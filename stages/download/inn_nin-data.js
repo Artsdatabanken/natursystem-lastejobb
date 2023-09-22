@@ -1,4 +1,4 @@
-const { git, log } = require("lastejobb");
+const { git, log } = require("@artsdatabanken/lastejobb");
 
 
 log.info('Cloning...')

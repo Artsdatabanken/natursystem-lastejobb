@@ -1,4 +1,4 @@
-const { io } = require("lastejobb");
+const { io } = require("@artsdatabanken/lastejobb");
 
 let alleKoder = io.readJson("./temp/natursystem-ubehandlet/kodeliste_v2b.json")
   .data;

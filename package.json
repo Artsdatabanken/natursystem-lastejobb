@@ -4,10 +4,9 @@
   "description": "",
   "scripts": {
     "start": "npm run build",
-    "download": "node node_modules/lastejobb/lastejobb stages/download",
-    "transform": "node --max_old_space_size=28192 node_modules/lastejobb/lastejobb stages/transform",
+    "download": "node node_modules/@artsdatabanken/lastejobb/lastejobb stages/download",
+    "transform": "node --max_old_space_size=28192 node_modules/@artsdatabanken/lastejobb/lastejobb stages/transform",
     "build": "npm run download && npm run transform",
-    "deploy": "node  --max_old_space_size=28192 node_modules/lastejobb/lastejobb stages/deploy",
     "precommit": "pretty-quick --staged"
   },
   "repository": {
@@ -22,7 +21,7 @@
   },
   "homepage": "https://github.com/Artsdatabanken/natursystem-lastejobb#readme",
   "dependencies": {
-    "lastejobb": "^3.8.2",
+    "@artsdatabanken/lastejobb": "^4.0.12",
     "tinycolor2": "^1.4.2",
     "@artsdatabanken/typesystem": "^10.7.1"
   }
